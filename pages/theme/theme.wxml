@@ -1,0 +1,34 @@
+<block wx:if="{{! showLoading}}">
+  <scroll-view class="scroll-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower"
+  bindscrolltoupper="scrolltoupper">
+ 
+      <view class='header-info'>
+        <image class='header-info-bg' src='{{dataList.image}}' mode='aspectFill'></image>
+        <text class='header-info-description'>{{dataList.description}}</text>
+        <view class='author-info-text'>主编</view>
+        <view wx:for="{{dataList.editors}}" wx:for-item="item" wx:key="author">
+          <image class='author-info-image' src='{{item.avatar}}'></image>
+        </view>
+      </view>
+      
+      <view wx:for="{{dataList.stories}}" wx:key="thats" wx:for-item="item">
+        <navigator url='../other-detail/other-detail?id={{item.id}}'>
+          <block wx:if="{{item.images}}">
+            <view class='dataList-style'>
+            <view class="item-info">
+              <view class='item-title'>{{item.title}}</view>
+              <image class='item-image' src='{{item.images}}'></image>
+            </view>
+            </view>
+          </block>
+          <block wx:else>
+          <view class='dataList-style'>
+            <view class='item-title2'>{{item.title}}</view>
+          </view>
+          </block>
+        </navigator>
+      <view>
+      </view>  
+    </view>
+  </scroll-view>
+  </block>

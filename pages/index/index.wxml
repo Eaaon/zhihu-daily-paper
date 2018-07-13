@@ -1,0 +1,99 @@
+<block wx:if="{{! showLoading}}">
+<!--index.wxml-->
+<view class="mpage {{!ui.tStart? 'withAnimate': ''}}" style="left:{{ui.offsetLeft}}px;width: {{ui.windowWidth}}px" bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" bindtap="handlerPageTap">
+  <scroll-view class="scroll-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower"
+  bindscrolltoupper="scrolltoupper">
+    <view class="page-section page-section-spacing swiper">
+      <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#8a8a8a" indicator-active-color="#fff"  style="height:518rpx">
+
+        <block wx:for="{{top_stories}}" wx:key="*this">
+          <swiper-item>
+            <navigator url='../detail/detail?id={{item.id}}'>
+              <image src='../../static/menu.png' class='menu-icon' bindtap='clickMenu' ></image>
+              <image src='{{item.image}}' class='swiper-img' mode='aspectFill'></image>
+              <view class='swiper-text'>{{item.title}}</view>
+            </navigator>  
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <!--设置历史文章-->
+    <view  wx:for="{{datalist}}" wx:for-item="item" wx:key="i" wx:for-index="i">
+      <view class="list-title-time" wx:if="{{i>0}}">
+        <text class="list-title-date">{{datalist[i].dateDay}}</text>
+      </view>
+      <view wx:for="{{datalist[i].stories}}" wx:key="j" wx:for-index="j" wx:for-item="items">
+        <navigator id="{{datalist[i].stories[j].id}}" url="../detail/detail?id={{datalist[i].stories[j].id}}">
+          <view class='list-title'>
+            <text class='list-title-text'>{{datalist[i].stories[j].title}}</text>
+            <image class='list-title-image' src='{{datalist[i].stories[j].images}}'></image>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <!-- 没有更多的时候 -->
+     <view hidden="{{hothidden}}" class="list-title-more">
+        <view wx:if="{{hothidden}}">
+            <image src="/static/loading.gif" mode="aspectFill"/>
+        </view>
+        <view wx:else>
+            <text> 没有更多了 </text>
+        </view>
+    </view> 
+  </scroll-view>
+</view>
+
+<view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" class="user" style="width: {{ui.menuWidth}}2px">
+   <view style="width: {{ui.menuWidth}}px;left:{{-ui.menuWidth/3 + ui.offsetLeft/3}}px" class="user-box {{!ui.tStart? 'withAnimate': ''}}">
+    <view class="userinfo">
+      <view wx:if="{{!hasUserInfo && canIUse}}">
+        <image bindtap="bindViewTap" class="userinfo-avatar-default" src="../../static/default-avatar.png" mode="cover"></image>
+        <button class='confirm-btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo">请登录</button> 
+      </view>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+    <view class='icon-nav'>
+    <navigator url='../bell/bell'>
+      <view class='star-info'>
+        <image class='star-icon' src='../../static/star.png'></image>
+        <text class='star-text'>收藏</text>
+      </view>
+    </navigator>  
+    <navigator url='../bell/bell'>
+      <view class='bell-info'>
+        <image class='bell-icon' src='../../static/bell.png'></image>
+        <text class='star-text'>消息</text>
+      </view>
+    </navigator>  
+    <navigator url='../bell/bell'>
+      <view class='setting-info'>
+        <image class='setting-icon' src='../../static/setting.png'></image>
+        <text class='star-text'>设置</text>
+      </view>
+    </navigator>    
+    </view>
+    <scroll-view class="scroll-boxs" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="lower">
+       <view class="item-home">
+         <image src='../../static/home.png' class='item-home-img'></image>
+         <view class='item-home-name'>首页</view>
+         <image src='../../static/arrows_right.png' class='item-home-img-right'></image>
+       </view>
+        <view class="themes-list-box" wx:for="{{themesData}}" wx:key="that" wx:for-item="item">
+          <navigator id="{{item.id}}" url='../theme/theme?id={{item.id}}&title={{item.name}}'>
+          <view class='themes-list'>
+            <view class="themes-list-name">{{item.name}}</view>
+            <image src='../../static/arrows_right.png' class='themes-list-img'></image>
+          </view>
+          </navigator>
+        </view>
+    </scroll-view>
+   </view>
+</view>
+</block> 

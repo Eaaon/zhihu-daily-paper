@@ -1,0 +1,4 @@
+<!--pages/bell/bell.wxml-->
+<view class='info'>
+  <text class='content'>暂无内容</text>
+</view>

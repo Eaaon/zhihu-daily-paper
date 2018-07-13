@@ -1,0 +1,38 @@
+/* pages/other-detail/other-detail.wxss */
+@import "../../wxParse/wxParse.wxss";
+.contain_detail_cnt { height: 100%; width: 100%; overflow: hidden; }
+.detail-header-image{
+  width: 100%;
+  height: 518rpx;
+  opacity:0.8; filter: alpha(opacity=80);
+}
+.detail-header-title{
+  position: absolute;
+  top: 345rpx;
+  left: 28rpx;
+  right: 28rpx;
+  color: #fff;
+  font-size: 48rpx;
+
+}
+.detail-header-image-source-text{
+  position: absolute;
+  top: 472rpx;
+  right: 34rpx;
+  color: #ccc;
+  font-size: 20rpx;
+  z-index: 100
+}
+
+/* 评论 */
+.content-comments{ margin-bottom: 20px; }
+.comments-title{ font-size: 14px; font-weight: bold; display: block; text-align: center; padding: 10px; }
+.comments-list{ margin-top: 10px; position: relative; padding: 10px; min-height: 40px;}
+.comments-avatar{ position: absolute; top: 10px; left: 10px; width: 40px; height: 40px; }
+.comments-avatar-img{ width: 80rpx; height: 80rpx; border-radius: 50%; }
+.comments-main{ margin-left: 50px; font-size: 14px; }
+.comments-author{ margin-bottom: 6px; color: #999; font-weight: bold; height: 20px; line-height: 20px; }
+.comments-content{ color: #666; line-height: 20px; }
+.comments-data{ height: 18px; margin-top: 5px; line-height: 18px; font-size: 12px; color: #999; }
+.comments-zan{ float: right; padding-left: 18px; position: relative; font-weight: normal; line-height: 20px; }
+.not-comments{ text-align: center; padding: 30px 20px; font-size: 14px; color: #999; }

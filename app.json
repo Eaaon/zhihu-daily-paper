@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/detail",
+    "pages/theme/theme",
+    "pages/other-detail/other-detail",
+    "pages/bell/bell"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#01a1ed",
+    "navigationBarTitleText": "今日热闻",
+    "navigationBarTextStyle":"white"
+  }
+}
