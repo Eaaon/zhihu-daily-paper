@@ -53,6 +53,6 @@ $ git clone https://github.com/Eaaon/zhihu-daily-paper.git
 [知乎日报API](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)
  
 ## 感谢[Di](https://github.com/icindy)提供的wxParse-微信小程序富文本解析自定义组件，支持HTML及markdown解析
-[知乎日报API](https://github.com/icindy/wxParse)
+[wxParse](https://github.com/icindy/wxParse)
 
 
