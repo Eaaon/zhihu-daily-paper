@@ -1,4 +1,4 @@
-# netmusic-app
+# zhihu-daily-paper
 欢迎star issue
 
 仿知乎日报APP的微信小程序
